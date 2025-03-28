@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+}
+
+nav {
+  min-width: 128px;
+  width: 10%;
+  border-right: 1px solid gray;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+button {
+  cursor: pointer;
+}
+
+nav button {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  font-size: 30px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  /* rotate: 45deg; */
+  transition: all 0.3s;
+}
+
+#main-content {
+  padding: 40px;
+  flex: 1;
+}
+
+#main-content #add-note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  display: none;
+}
+
+#main-content #add-note-form input,
+textarea {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid gray;
+  resize: vertical;
+}
+
+#add-note-btn, #save-note-btn {
+  align-self: flex-end;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: rgba(128, 128, 128, 0.18);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#add-note-btn:hover,
+#save-note-btn:hover     {
+  background-color: rgba(128, 128, 128, 0.28);
+}
+
+#add-note-btn:active,
+#save-note-btn:active {
+  background-color: rgba(128, 128, 128, 0.38);
+}
+
+#add-note-form #save-note-btn {
+  display: none;
+}
+
+#notes-container {
+  /* border: 1px solid green; */
+  min-height: 100%;
+  /* columns: 300px; */
+  column-count: 3;
+}
+
+.note {
+  /* border: 1px solid #222; */
+  border-radius: 12px;
+  break-inside: avoid;
+  margin-bottom: 16px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: #e6e6e6;
+}
+
+.note h3 {
+  font-size: 20px;
+}
+
+.note p {
+  margin-bottom: 12px;
+}
+
+.note .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#color-input {
+  width: 10%;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.note-btns button {
+  padding: 4px 8px;
+  font-size: 16px;
+}
+
+.note-btns .edit-note-btn {
+  background-color: skyblue;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.note-btns .delete-note-btn {
+  background-color: rgb(215, 0, 0);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+}
