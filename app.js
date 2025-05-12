@@ -1,4 +1,4 @@
-const addNoteForm = document.querySelector("#add-note-form")
+const addNoteForm = document.querySelector("#add-note-form");
 
 const titleInput = document.querySelector("#add-note-form input");
 const textInput = document.querySelector("#add-note-form textarea");
@@ -43,21 +43,28 @@ addNoteBtn.addEventListener("click", function () {
     })
 
     // edit functionality
+    let currentEditingNote = null;
     const editNoteBtn = newNote.querySelector(".edit-note-btn");
     editNoteBtn.addEventListener("click", function () {
-        // 1. click krne pr form khul jaye
         notesContainerElem.style.display = "none";
         addNoteForm.style.display = "flex";
-        // 2. form ke title main usi note ka title aur form ke text main usi note ka text ho
+
         titleInput.value = newNote.firstElementChild.innerHTML;
         textInput.value = newNote.firstElementChild.nextElementSibling.innerHTML;
-        // 3. aur phr save krne pr wo new values save hojayen
+
+        currentEditingNote = newNote;
+
         addNoteBtn.style.display = "none";
         saveNoteBtn.style.display = "inline-block"
+    })
 
-        saveNoteBtn.addEventListener("click", function () {
-            newNote.firstElementChild.innerHTML = titleInput.value;
-            newNote.firstElementChild.nextElementSibling.innerHTML = textInput.value;
+    // save functionality
+    saveNoteBtn.addEventListener("click", function () {
+        if (currentEditingNote) {
+            currentEditingNote.firstElementChild.innerHTML = titleInput.value;
+            currentEditingNote.firstElementChild.nextElementSibling.innerHTML = textInput.value;
+
+            currentEditingNote = null;
 
             titleInput.value = "";
             textInput.value = "";
@@ -67,13 +74,14 @@ addNoteBtn.addEventListener("click", function () {
 
             addNoteBtn.style.display = "inline-block";
             saveNoteBtn.style.display = "none"
-        })
+        }
+
     })
 
     // delete functionality
     const deleteNoteBtn = newNote.querySelector(".delete-note-btn");
-    deleteNoteBtn.addEventListener("click", function(){
-        newNote.remove();        
+    deleteNoteBtn.addEventListener("click", function () {
+        newNote.remove();
     })
 
     addNoteForm.style.display = "none";
